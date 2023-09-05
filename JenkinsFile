@@ -48,10 +48,10 @@ pipeline {
     
     post {
         always {
-            mail body: 'See the attachment for logs.',
-                subject: "Pipeline '${currentBuild.fullDisplayName}'",
-                to: 'info.amankag@gmail.com',
-                attachmentsPattern: '**/target/*.log'
+            emailext body: 'See the attachment for logs.',
+                    subject: "Pipeline '${currentBuild.fullDisplayName}'",
+                    to: 'info.amankag@gmail.com',
+                    attachmentsPattern: '**/target/*.log'
         }
     }
 }

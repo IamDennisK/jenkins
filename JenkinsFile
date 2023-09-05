@@ -48,10 +48,13 @@ pipeline {
     
     post {
         always {
-            emailext body: 'See the attachment for logs.',
-                    subject: "Pipeline '${currentBuild.fullDisplayName}'",
-                    to: 'info.amankag@gmail.com',
-                    attachmentsPattern: '**/target/*.log'
+            emailext (
+                to: 'info.amankag@gmail.com',
+                subject: "Jenkins Build: ${currentBuild.fullDisplayName}",
+                body: """<p>Build: ${env.BUILD_URL}</p>
+                        <p>Status: ${currentBuild.currentResult}</p>""",
+                mimeType: 'text/html'
+            )
         }
     }
 }

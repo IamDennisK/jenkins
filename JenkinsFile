@@ -10,13 +10,15 @@ pipeline {
         }
         stage('Unit and Integration Tests') {
             steps {
-                echo 'Testing the first components.'
+                echo 'Tool in use Seleniam Testing the first components.'
                 echo 'Testing the remaining components.'
                 echo 'Integration and environment testing...done.'
             }
         }
         stage('Code Analysis') {
             steps {
+                echo 'Installing SonarQube...!!Installed'
+                echo 'Launch SonarQube'
                 echo 'Initializing the code analysis...'
                 echo 'Performing the code analysis...'
                 echo 'Code analysis in progress...'
